@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>ProjetoCSC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paulo, Rogerio e Railson">
+    <meta name="description" content="ProjetoCSC">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" th:href="@{css/estiloListar.css}">
+    <style type="text/css">
+    	.col{
+			width: 22%;
+			display: inline-block;
+			margin: 10px 15px 10px 0px;
+		}
+    </style>
+  </head>
+ 
+  <body onLoad="setTimeout(carregar, 2000);">
+  	<div class="main">
+	  	<h1>Lista de TCC</h1>
+	  	
+	  	<div id="mensagem" style="display:block;" th:if="${mensagem}">
+  			<p th:text="${mensagem}"></p>
+  	    </div>
+  	    
+	  	<div class="div-btn">
+	  		<p><a class="btn btn-danger" href="/cadastrarTccUsuario">Cadastro de TCC</a></p>
+	  	</div>
+	  	
+	  	<div class="row pesquisa">
+		  	<form action="pesquisarTccUsuario" method="post">
+			  	<fieldset>
+			  	  <legend>Pesquisar</legend>
+			          <div class=col>
+			             <label for="orientador">Orientador:</label>
+			             <input type="text" value="" name="orientador" id="orientador">
+			          </div>
+			          <div class=col>
+			             <label for="professor">Professor:</label>
+			             <input type="text" value="" name="professor" id="professor">
+			          </div>
+			          <div class=col>
+			             <label for="curso">Curso:</label>
+			             <input type="text" value="" name="curso" id="curso">
+			          </div>
+			          <div class=col>
+			             <label for="anoSemestre">Ano/Semestre:</label>
+			             <input type="text" value="" name="anoSemestre" id="anoSemestre">
+			          </div>
+			          <div class = col-buttom>
+			             <button class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
+			          </div> 
+		       </fieldset>
+	       </form>
+	  	</div>
+	  	
+	  	<div class="div-table">
+		  	 <table class="table table-alternate">
+		        <thead>
+		            <tr>
+		                <th>Titulo</th>
+		                <th>Professor</th>
+		                <th>Orientador</th>
+		                <th>Curso</th>
+		                <th>Ano/Semestre</th>
+		                <th>Tipo</th>
+		                <th>Alunos</th>
+		                <th>Editar/Excluir</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr th:each="tcc: ${tccs}">
+			  			<td><span th:text="${tcc.titulo}"></span></td>
+			  			<td><span th:text="${tcc.professor}"></span></td>
+			  			<td><span th:text="${tcc.orientador}"></span></td>
+			  			<td><span th:text="${tcc.curso}"></span></td>
+			  			<td><span th:text="${tcc.anoSemestre}"></span></td>
+			  			<td><span th:text="${tcc.tipo}"></span></td>
+			  			<td><span th:text="${tcc.alunos}"></span></td>
+			  			<td>
+			  				<a th:href="@{/editarTccUsuario/{id}(id=${tcc.id})}">
+			  				    <i class="fas fa-user-edit"></i>
+                            </a>
+                            <a th:href="@{/excluirTccUsuario/{id}(id=${tcc.id})}">
+			  				    <i class="fas fa-trash-alt"></i>
+                            </a>
+			  			</td>
+		  		    </tr>
+		        </tbody>
+		    </table>
+	  	</div>
+    </div>
+    
+    <script>
+		function carregar() {
+		    document.getElementById("mensagem").style.display="none";
+		}
+	</script>
+	
+  </body>
+
+</html>

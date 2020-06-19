@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>ProjetoCSC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paulo, Rogerio e Railson">
+    <meta name="description" content="ProjetoCSC">
+    <link rel="stylesheet" th:href="@{css/estiloLogin.css}">
+  </head>
+ 
+  <body>
+  
+  	<div style="height:75px; width:100%; border-bottom:4px solid #d9534f">
+	    <img style="width:90px; height:65px;" alt="" src="imagens/UNIALFA.png">
+	  	<img style="width:110px; height:36px; margin-bottom: 10px;" alt="" src="imagens/fadisp.png">
+	  	<span style="float:right; font-size:12px; padding:20px;">Disciplina:
+	  	<strong>Construção de Software Comercial <br>Projeto V.0.1</strong></span>
+  	</div>
+  	
+  	
+  	<div class="login">
+  	
+  		<div class="validacao" th:if="${mensagem}">
+  			<p th:text="${mensagem}"></p>
+  	    </div>
+  	    
+	  	<h1>UNIALFA | FADISP</h1>
+	  	<hr>
+	  	
+	  	<form action="login" method="post">
+	  		<div style="padding: 20px 0 10px 50px">Login:</div>
+	  	 	<input type="text" value="" name="login" required="required" autofocus class="form-control"/>
+	  	 	<div style="padding: 0 0 10px 50px">Senha:</div>
+	  		<input type="password" value="" name="senha" required="required" class="form-control"/>
+	  		<button type="submit" class="btn btn-danger" style="margin: 10px 0 40px 268px;">Confirmar</button>
+	  	</form>
+  	</div>
+  </body>
+
+</html>

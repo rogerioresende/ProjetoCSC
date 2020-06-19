@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+  
+    <title>ProjetoCSC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paulo, Rogerio e Railson">
+    <meta name="description" content="ProjetoCSC">
+    <link rel="stylesheet" th:href="@{/css/estiloForm.css}">
+    <style type="text/css">
+    	.main{
+		    height: 580px;
+        }
+    </style>
+    
+  </head>
+
+  <body>
+    <div class="main">
+    
+	    <h1>Editar de TCC</h1>
+	    
+	    <div class="div-btn">
+	    	<p><a class="btn btn-default" href="/listarTccAdm">Voltar</a></p>
+	    </div>
+	  	
+	  	<div class="row">
+		  	<form method="post">
+		  	    <div class="col">
+		  	    	<label for="titulo">Título:*</label>
+		  		    <input type="text" th:value="${tcc.titulo}" name="titulo" id="titulo" required="required"/>
+		  	    </div>
+		  	    <div class="col">
+		  	    	<label for="professor">Professor:*</label>
+		  		    <input type="text" th:value="${tcc.professor}" name="professor" id="professor" required="required"/>
+		  	    </div>
+		  	    <div class="col">
+		  	    	<label for="orientador">Orientador:*</label>
+		  		    <input type="text" th:value="${tcc.orientador}" name="orientador" id="orientador" required="required"/>
+		  	    </div>
+		  	    <div class="col">
+		  	    	<label for="curso">Curso:*</label>
+		  		    <input type="text" th:value="${tcc.curso}" name="curso" id="curso" required="required"/>
+		  	    </div>
+		  	    <div class="col">
+		  	    	<label for="anoSemestre">Ano/Semestre:*</label>
+		  		    <input type="text" th:value="${tcc.anoSemestre}" name="anoSemestre" id="anoSemestre" required="required"/>
+		  	    </div>
+		  	    
+		  	    <div class="col" th:if = "${tcc.tipo} == 'TCC1'">
+		  	        <label for="tipo">Tipo de Tcc:*</label>
+			  		<select  name="tipo" id="tipo" required="required">
+				        <option value= "TCC1"> TCC1 </option>
+						<option value= "TCC2"> TCC2 </option>                                              
+			        </select>
+		  		</div>
+		  		 <div class="col" th:if = "${tcc.tipo} == 'TCC2'">
+		  	        <label for="tipo">Tipo de Tcc:*</label>
+			  		<select  name="tipo" id="tipo" required="required">
+			  		    <option value= "TCC2"> TCC2 </option> 
+				        <option value= "TCC1"> TCC1 </option>                                             
+			        </select>
+		  		</div>
+		  		
+		  	    <div class="col">
+			  	    <label for="aluno1">Aluno:*</label>
+			  	    <input type="text" th:value="${alunos.aluno1}" name="aluno1" id="aluno1" required="required"/>
+		  	    </div>
+		  		<div class="col">
+		  			<label for="matricula1">Matrícula:*</label>
+		  		    <input type="text" th:value="${alunos.matricula1}" name="matricula1" id="matricula1" required="required"/>
+		  		</div>
+		  		<div class="col">
+			  	    <label for="aluno2">Aluno:</label>
+			  	    <input type="text" th:value="${alunos.aluno2}" name="aluno2" id="aluno2"/>
+		  	    </div>
+		  		<div class="col">
+		  			<label for="matricula2">Matrícula:</label>
+		  		    <input type="text" th:value="${alunos.matricula2}" name="matricula2" id="matricula2"/>
+		  		</div>
+		  		<div class="col">
+			  	    <label for="aluno3">Aluno:</label>
+			  	    <input type="text" th:value="${alunos.aluno3}" name="aluno3" id="aluno3"/>
+		  	    </div>
+		  		<div class="col">
+		  			<label for="matricula3">Matrícula:</label>
+		  		    <input type="text" th:value="${alunos.matricula3}" name="matricula3" id="matricula3"/>
+		  		</div>
+		  		<button class="btn btn-danger" type="submit">Atualizar</button>
+		  	</form>
+	  	</div>
+	  	
+    </div>
+  	
+  </body>
+
+</html>

@@ -1,0 +1,97 @@
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333333;
+    margin: 0;
+}
+h1{
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 20px;
+	font-size: 20px;
+}
+a{
+    text-decoration: none;
+}
+.main{
+	margin: 10px 80px;
+	padding-bottom: 25px;
+	border-radius: 5px;
+    background: #f1f1f1;
+    box-shadow: 0px 0px 5px #999;
+    height: 570px;
+}
+.div-btn{
+	margin-top: -30px;
+	overflow: auto;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 40px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+
+}
+.btn-danger{
+	color: #ffffff;
+    background-color: #d9534f;
+    border: 1px solid #d43f3a;
+    border-radius: 4px;
+    margin: 10px 10px 10px 543px;
+}
+.btn-danger:hover{
+	background-color: #d43f3a;
+}
+.btn-default{
+	color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin: 0 50px 10px 10px;
+    float:right;
+}
+.btn-default:hover{
+	background-color: #cccccc;
+}
+.row{
+    overflow: auto;
+}
+.col{
+	width: 43%;
+	display: inline-block;
+	margin: 10px 20px 10px 48px;
+}
+label{
+	width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+input, select{
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #c0c0c0;
+}
+input:focus, select:focus{
+    outline: none;
+    border: 1px solid #73cefb;
+    box-shadow: 0px 0px 5px #73cefb;
+}
+#mensagemErro{
+	width: 30%;
+	margin: auto;
+	background: #ff4f4f;
+	border-radius: 4px;
+    border: 1px solid #bf0000;
+    color: black;
+    text-align: center;
+}
+

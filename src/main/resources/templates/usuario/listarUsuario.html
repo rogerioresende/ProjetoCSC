@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>ProjetoCSC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paulo, Rogerio e Railson">
+    <meta name="description" content="ProjetoCSC">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" th:href="@{css/estiloListar.css}">
+  </head>
+
+  <body onLoad="setTimeout(carregar, 2000);">
+  	<div class="main">
+  	
+  		<h1>Lista de Usuário</h1>
+  		
+  		<div id="mensagem" style="display:block;" th:if="${mensagem}">
+  			<p th:text="${mensagem}"></p>
+  	    </div>
+  		
+  		<div class="div-btn">
+		  	<p><a class="btn btn-danger" href="/cadastrarUsuario">Cadastro de Usuário</a></p>
+		  	<p><a class="btn btn-default" href="/listarTccAdm">Lista de TCC</a></p>
+	  	</div>
+	  	
+	  	<div class="row pesquisa">
+		  	<form action="pesquisarUsuario" method="post">
+		  		<fieldset>
+			  	  <legend>Pesquisar</legend>
+			          <div class=col>
+			             <label for="nome">Nome:</label>
+			             <input type="text" value="" name="nome" id="nome">
+			          </div>
+			          <div class=col>
+			             <label for="login">Login:</label>
+			             <input type="text" value="" name="login" id="login">
+			          </div>
+			          <div class = col-buttom>
+			             <button style="margin-left:13px" class="btn-icon" type="submit"><i class="fas fa-search"></i></button>
+			          </div> 
+		   		</fieldset>
+	       </form>
+	  	</div>
+	  	
+	  	
+	  	<div class="div-table">
+	  		 <table class="table">
+		        <thead>
+		            <tr>
+		                <th>Nome</th>
+		                <th>Login</th>
+		                <th>Senha</th>
+		                <th>Tipo de Acesso</th>
+		                <th>Editar/Excluir</th>
+		            </tr>
+		        </thead>
+		        <tbody>
+		            <tr th:each="usuario: ${usuarios}">
+			  			<td><span th:text="${usuario.nome}"></span></td>
+			  			<td><span th:text="${usuario.login}"></span></td>
+			  			<td><span th:text="${usuario.senha}"></span></td>
+			  			<td><span th:text="${usuario.acesso}"></span></td>
+			  			<td>
+			  				<a th:href="@{/editarUsuario/{id}(id=${usuario.id})}">
+			  				    <i class="fas fa-user-edit"></i>
+                            </a>
+                            <a th:href="@{/excluirUsuario/{id}(id=${usuario.id})}">
+			  				    <i class="fas fa-trash-alt"></i>
+                            </a>
+			  			</td>
+		  		    </tr>
+		        </tbody>
+		    </table>
+	  	</div>
+	
+  	</div>
+  	<script>
+		function carregar() {
+		    document.getElementById("mensagem").style.display="none";
+		}
+	</script>
+  </body>
+
+</html>

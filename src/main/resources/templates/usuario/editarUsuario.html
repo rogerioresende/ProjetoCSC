@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>ProjetoCSC</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Paulo, Rogerio e Railson">
+    <meta name="description" content="ProjetoCSC">
+    <link rel="stylesheet" th:href="@{/css/estiloForm.css}">
+  </head>
+
+  <body>
+  	<div class="main">
+  	
+  		<h1>Editar Usuário</h1>
+  		
+  		<div class="div-btn">
+	    	<p><a class="btn btn-default" href="/listarUsuario">Cancelar</a></p>
+	    </div>
+	  	
+	  	<div class="row">
+		  	<form method="post">
+		  	
+		  	    <div class="col">
+		  	    	<label for="nome">Nome:*</label>
+		  		    <input type="text" th:value="${usuario.nome}" name="nome" id="nome" required="required"/>
+		  	    </div>
+		  	    <div class="col" th:if = "${usuario.acesso} == 'Administrador'">
+		  	        <label for="acesso">Tipo de acesso:*</label>
+			  		<select name="acesso" id="acesso" required="required">
+				        <option value= "Administrador"> Administrador</option>
+						<option value= "Usuário"> Usuário </option>                                              
+			        </select>
+		  		</div>
+		  		<div class="col" th:if = "${usuario.acesso} == 'Usuário'">
+		  	        <label for="acesso">Tipo de acesso:*</label>
+			  		<select name="acesso" id="acesso" required="required">
+			  			<option value= "Usuário"> Usuário </option>
+				        <option value= "Administrador"> Administrador</option>                                              
+			        </select>
+		  		</div>
+		  	    <div class="col">
+			  	    <label for="login">Login:*</label>
+			  	    <input type="text" th:value="${usuario.login}" name="login" id="login" required="required"/>
+		  	    </div>
+		  		<div class="col">
+		  			<label for="senha">Senha:*</label>
+		  		    <input type="text" th:value="${usuario.senha}" name="senha" id="senha" required="required"/>
+		  		</div>
+		  		
+		  		<button class="btn btn-danger" type="submit">Atualizar</button>
+		  	</form>
+	  	</div>
+	  	
+    </div>
+  </body>
+
+</html>
